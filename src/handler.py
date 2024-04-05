@@ -94,7 +94,11 @@ INPUT_SCHEMA = {
         "required": False,
         # "x-order": 5,
         # "description": "Increases the influence of inputs on the output. Higher values produce lower-varience outputs that adhere more closely to inputs."
-    }
+    },
+    "user_id": {
+        "type": str,
+        "required": True
+    },
 }
 
 # ----------------------------- Start API Service ---------------------------- #
