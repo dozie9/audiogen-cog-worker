@@ -42,3 +42,7 @@ jobs:
         with:
           push: true
           tags: ${{ vars.DOCKERHUB_REPO }}/${{ vars.DOCKERHUB_IMG }}:${{ env.DOCKER_TAG }}
+          build-args: |
+            COG_REPO=sepal
+            COG_MODEL=audiogen
+            COG_VERSION=154b3e5141493cb1b8cec976d9aa90f2b691137e39ad906d2421b74c2a8c52b8
