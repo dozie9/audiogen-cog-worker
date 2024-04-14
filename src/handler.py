@@ -5,6 +5,7 @@ import os
 import json
 import subprocess
 import uuid
+from datetime import datetime
 
 import runpod
 import requests
@@ -146,13 +147,18 @@ def get_extension_from_mime(mime_type):
 
 def to_firestore(file_url, user_id):
     db = firestore.client(app=sad_app)
+
+    current_utc_time = datetime.utcnow()
+    formatted_time = current_utc_time.strftime("%Y-%m-%d %H:%M:%S")
+
     push_data = {
         "uploaderId": user_id,
         # "videoCaption": prompt,
         "audioUrl": file_url,
+        "timestamp": formatted_time
     }
 
-    collection_path = "videosList"
+    collection_path = "audioList"
 
     print("*************Starting firestore data push***************")
     update_time, firestore_push_id = db.collection(collection_path).add(
