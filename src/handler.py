@@ -155,7 +155,8 @@ def to_firestore(file_url, user_id):
         "uploaderId": user_id,
         # "videoCaption": prompt,
         "audioUrl": file_url,
-        "timestamp": formatted_time
+        "timestamp": formatted_time,
+        "api": "audiogen"
     }
 
     collection_path = "audioList"
